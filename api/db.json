@@ -39,6 +39,14 @@
       "location": "Osasco, São Paulo, Brasil",
       "urlImage": "link",
       "assessment": "1"
+    },
+    {
+      "id": "93bf",
+      "name": "teste1",
+      "category": "teste1",
+      "location": "teste",
+      "urlImage": "imagem",
+      "assessment": "3"
     }
   ]
 }

@@ -38,16 +38,21 @@ export class PlaceComponent implements OnInit {
   }
 
   save () {
-    this.servicesPlaces.save(this.fieldsForm.value).subscribe({
-      next: (result) => {
-        console.log(result)
-        this.fieldsForm.reset()
-      }
-    })
-    console.log(this.fieldsForm.value)
+    if (this.fieldsForm.valid) {
+      
+      this.fieldsForm.markAllAsTouched()
+
+      this.servicesPlaces.save(this.fieldsForm.value).subscribe({
+        next: (result) => {
+          console.log(result)
+          this.fieldsForm.reset()
+        }
+      })
+      console.log(this.fieldsForm.value)
+    }
   }
 
-    isFieldValid (fieldName: string): boolean {
+  isFieldValid (fieldName: string): boolean {
     const field = this.fieldsForm.get(fieldName)
     return (field?.errors?.["required"] && field?.touched) || false;
   }
