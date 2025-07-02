@@ -20,6 +20,16 @@ export class CategoryComponent {
   }
 
   save () {
-    console.log("valores", this.fieldForm.value)
+    this.fieldForm.markAllAsTouched()
+
+    if (this.fieldForm.valid) {
+      console.log("valores", this.fieldForm.value)
+    }
+  
+  }
+
+  isFieldValid (fieldName: string): boolean {
+    const field = this.fieldForm.get(fieldName)
+    return (field?.errors?.["required"] && field?.touched) || false;
   }
 }

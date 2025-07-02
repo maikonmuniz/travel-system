@@ -11,6 +11,7 @@
                 placeholder="Ex: Restaurantes, Praias, Shopping etc..."
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
                 />
+                <span class="text-red-500 text-sm" *ngIf="isFieldValid('name')">Campo Obrigatório</span>
         </div>
 
         <div class="mb-4">
@@ -21,8 +22,9 @@
                 formControlName="description"
                 placeholder="Ex: Restaurantes, Praias, Shopping etc..."
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
-                >
+                required>
             </textarea> 
+            <span class="text-red-500 text-sm" *ngIf="isFieldValid('description')">Campo Obrigatório</span>
         </div>
         <button type="submit" class="w-full bg-blue-600 text-white font-semibold p-3 shadow hover:bg-blue-700">Cadastrar Categoria</button>
     </form>
