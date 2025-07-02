@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-category',
@@ -7,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './category.component.scss'
 })
 export class CategoryComponent {
+  fieldForm: FormGroup;
 
+  constructor () {
+    this.fieldForm = new FormGroup (
+      {
+        name: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required)
+      }
+    )
+  }
+
+  save () {
+    console.log("valores", this.fieldForm.value)
+  }
 }
