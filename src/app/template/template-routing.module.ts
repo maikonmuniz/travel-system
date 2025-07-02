@@ -8,8 +8,14 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('../categories/categories.module').then(module => module.CategoriesModule)
+        path: 'category',
+        loadChildren: () => import('../categories/categories.module').then(module => module.CategoriesModule),
+        pathMatch: 'full'
+      },
+      {
+        path: 'places',
+        loadChildren: () => import('../places/places.module').then(module => module.PlacesModule),
+        pathMatch: 'full'
       }
     ]
   }
