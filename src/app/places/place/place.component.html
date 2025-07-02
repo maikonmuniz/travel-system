@@ -1,7 +1,7 @@
 <div class="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg mt-6">
     <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Novo lugar</h2>
     <hr />
-    <form id="placeForm" [formGroup]="fieldsForm">
+    <form id="placeForm" [formGroup]="fieldsForm" (ngSubmit)="save()">
         <div class="mb-4">
             <label for="name" class="block text-gray-600 font-medium mb-2">Nome do lugar</label>
             <input 
@@ -11,6 +11,25 @@
                 formControlName="name"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
                 placeholder="Ex: Restaurantes, lugares etc..."/>
+            <span class="text-red-500 text-sm" *ngIf="isFieldValid('name')">Campo Obrigatório</span>
+
+        </div>
+
+        <div class="mb-4">
+            <label for="name" class="block text-gray-600 font-medium mb-2">Categoria</label>
+            <select
+                    name="category" 
+                    id="category"
+                    formControlName="category"
+                    class="w-full p-3 border border-gray-300 rounded shadow-sm">
+                
+                <option [value]=""></option>
+                <option *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</option>
+
+            </select>
+
+        <span class="text-red-500 text-sm" *ngIf="isFieldValid('category')">Campo Obrigatório</span>
+
         </div>
 
         <div class="mb-4">
@@ -22,21 +41,47 @@
                 formControlName="location"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
                 placeholder="Ex: Location, lugares etc..."/>
+            
+            <span class="text-red-500 text-sm" *ngIf="isFieldValid('location')">Campo Obrigatório</span>
         </div>
 
         <div class="mb-4">
-            <label for="urlImage" class="block text-gray-600 font-medium mb-2">Localização</label>
+            <label for="urlImage" class="block text-gray-600 font-medium mb-2">Image URL</label>
             <input
                 type="text"
                 id="urlImage"
                 name="urlImage"
                 formControlName="urlImage"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
-                placeholder="Ex: Image, lugares etc..."/>
+                placeholder=""/>
+            <span class="text-red-500 text-sm" *ngIf="isFieldValid('urlImage')">Campo Obrigatório</span>
         </div>
+
+        <div class="mb-4">
+            <label for="name" class="block text-gray-600 font-medium mb-2">Avaliação</label>
+            <select
+                    name="assessment" 
+                    id="assessment"
+                    formControlName="assessment"
+                    class="w-full p-3 border border-gray-300 rounded shadow-sm"
+            >
+            <option [value]=""></option>
+            <option [value]="1">1 - Ruim</option>
+            <option [value]="2">2 - Regular</option>
+            <option [value]="3">3 - Bom</option>
+            <option [value]="4">4 - Muito Bom</option>
+            <option [value]="5">5 - Excelente</option>
+
+            </select>
+
+            <span class="text-red-500 text-sm" *ngIf="isFieldValid('assessment')">Campo Obrigatório</span>
+
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded shadow hover:bg-blue-700">
+            Cadastrar lugar
+        </button>
     </form>
 
-    <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded shadow hover:bg-blue-700">
-        Cadastrar lugar
-    </button>
+
 </div>

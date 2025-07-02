@@ -30,5 +30,15 @@
       "name": "teste4",
       "description": "teste4"
     }
+  ],
+  "places": [
+    {
+      "id": "882c",
+      "name": "adsda",
+      "category": "teste2",
+      "location": "Osasco, São Paulo, Brasil",
+      "urlImage": "link",
+      "assessment": "1"
+    }
   ]
 }

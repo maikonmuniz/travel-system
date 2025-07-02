@@ -15,6 +15,6 @@ export class CategoryService {
   }
 
   getAll(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:3000/category')
+    return this.http.get<Category[]>('http://localhost:3000/categories')
   }
 }
