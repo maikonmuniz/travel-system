@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category',
@@ -10,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class CategoryComponent {
   fieldForm: FormGroup;
 
-  constructor () {
+  constructor (private categoryService: CategoryService) {
     this.fieldForm = new FormGroup (
       {
         name: new FormControl('', Validators.required),
@@ -23,9 +24,16 @@ export class CategoryComponent {
     this.fieldForm.markAllAsTouched()
 
     if (this.fieldForm.valid) {
-      console.log("valores", this.fieldForm.value)
+      this.categoryService.
+      save(this.fieldForm.value).
+      subscribe({
+        next: category => {
+          console.log(category)
+          this.fieldForm.reset()
+        },
+        error: erro => console.log(erro) 
+      })
     }
-  
   }
 
   isFieldValid (fieldName: string): boolean {
