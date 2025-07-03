@@ -1,0 +1,28 @@
+<div class="p-4 bg-white shadow">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+        
+        <input type="text" 
+                placeholder="Pesquisar pelo nome do local" 
+                class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
+        
+        <select name="" id="" class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
+            <option [value]="" >Todas as Categoria</option>
+            <option [value]="cat.name" *ngFor="let cat of category">{{cat.name}}</option>
+        </select>
+
+    </div>
+</div>
+
+<div id="placeList" class="p-4 grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6" >
+    <div class="bg-white shadow overflow-hidden" *ngFor="let pla of place">
+        <img [src]="pla.urlImage" class="w-full h-40 object-cover"/>
+        <div class="p-4">
+            <h2 class="text-lg font-semibold">{{ pla.name }}</h2>
+            <p>Categoria: <span class="text-blue-600">{{ pla.category }}</span></p>
+            <div class="mt-2 flex items-center">
+                <span class="text-yellow-500" [innerHTML]="totalStar(pla)"></span>
+                <span class="ml-2 text-gray-500">{{ pla.assessment }}</span>
+            </div>
+        </div>
+    </div>
+</div>
