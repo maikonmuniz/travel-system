@@ -14,6 +14,8 @@ export class GalleryComponent implements OnInit {
 
   place: Place[] = [];
   category: Category[] = [];
+  nameFilter: string = "";
+  categoryFilter: string = "";
 
   constructor (
     private placesService: PlaceService,
@@ -27,5 +29,9 @@ export class GalleryComponent implements OnInit {
 
   totalStar (place: Place) {
     return "&#9733;".repeat(place?.assessment || 0) + '&#9734;'.repeat(5 - (place?.assessment || 0));
+  }
+
+  filter() {
+    this.placesService.filter(this.nameFilter, this.categoryFilter).subscribe(result => this.place = result)
   }
 }

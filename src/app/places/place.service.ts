@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Place } from './place';
 
@@ -16,5 +16,19 @@ export class PlaceService {
 
   getAll(): Observable<Place[]> {
     return this.httpClient.get<Place[]>("http://localhost:3000/places")
+  }
+
+  filter(name: string, category: string): Observable<Place[]> {
+    let paramsField = new HttpParams();
+      if (name) {
+        paramsField = paramsField.set('nome_like', name)
+      }
+      if (category) {
+        paramsField = paramsField.set('category', category)
+      }
+      console.log(paramsField)
+      return this.httpClient.get<Place[]>("http://localhost:3000/places", {
+        params: paramsField
+      })
   }
 }

@@ -13,7 +13,7 @@ import { PlaceComponent } from './place/place.component';
   imports: [
     CommonModule,
     PlacesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class PlacesModule { }

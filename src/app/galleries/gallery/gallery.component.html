@@ -1,17 +1,29 @@
-<div class="p-4 bg-white shadow">
-    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-        
-        <input type="text" 
-                placeholder="Pesquisar pelo nome do local" 
-                class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
-        
-        <select name="" id="" class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
-            <option [value]="" >Todas as Categoria</option>
-            <option [value]="cat.name" *ngFor="let cat of category">{{cat.name}}</option>
-        </select>
 
+<form #frm="ngForm">
+    <div class="p-4 bg-white shadow">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+            
+            <input type="text"
+                    name="nameFilter"
+                    [(ngModel)]="nameFilter" 
+                    placeholder="Pesquisar pelo nome do local" 
+                    class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
+            
+            <select name="categoryFilter" 
+                    id="categoryFilter"
+                    [(ngModel)]="categoryFilter"
+                    class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400">
+                <option [value]="" >Todas as Categoria</option>
+                <option [value]="cat.name" *ngFor="let cat of category">{{cat.name}}</option>
+            </select>
+            
+            <button (click)="filter()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">
+                Pesquisar
+            </button>
+
+        </div>
     </div>
-</div>
+</form>
 
 <div id="placeList" class="p-4 grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6" >
     <div class="bg-white shadow overflow-hidden" *ngFor="let pla of place">
