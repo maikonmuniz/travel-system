@@ -1,38 +1,27 @@
-<header class="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 shadow-lg">
+<div class="flex flex-col min-h-screen">
+
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 shadow-xl">
     <div class="text-center">
-        <h1 class="text-3x1 font-bold">Titulo</h1>
-        <p class="text-lg mt-2 ">SubTitulo</p>
+      <h1 class="text-4xl font-bold tracking-wide">Lugares para Viajar</h1>
     </div>
     <div class="mt-4">
-        <hr class="border-t border-blue-500 opacity-50"/>
+      <hr class="border-t border-white/30" />
     </div>
 
-    <nav class="flex justify-center space-x-6 text-white font-bold mt-4">
-        <ul>
-            <li>
-                <a routerLink="gallery" class="hover:text-yellow-300">Galeria</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a routerLink="category" class="hover:text-yellow-300">Categoria</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a routerLink="places" class="hover:text-yellow-300">Lugares</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a class="hover:text-yellow-300">Sair</a>
-            </li>
-        </ul>
+    <nav class="flex justify-center space-x-10 font-semibold mt-6">
+      <ul><li><a routerLink="gallery" class="hover:text-yellow-300 transition-colors">Galeria</a></li></ul>
+      <ul><li><a routerLink="category" class="hover:text-yellow-300 transition-colors">Categoria</a></li></ul>
+      <ul><li><a routerLink="places" class="hover:text-yellow-300 transition-colors">Lugares</a></li></ul>
+      <ul><li><a class="hover:text-yellow-300 transition-colors">Sair</a></li></ul>
     </nav>
-</header>
+  </header>
 
-<router-outlet></router-outlet>
+  <main class="flex-1 bg-gray-50 p-6">
+    <router-outlet></router-outlet>
+  </main>
 
-<footer class="bg-gray-200 text-center p-4 mt-4">
-    <p class="text-gray-600 text-sm">2025 Lugares para viajar</p>
-</footer>
+  <footer class="bg-gray-900 text-gray-400 text-center p-4 text-sm">
+    © 2025 Lugares para Viajar
+  </footer>
+
+</div>
